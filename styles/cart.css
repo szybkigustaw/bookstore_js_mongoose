@@ -1,0 +1,110 @@
+.cart-main {
+  height: 70vh;
+  background-image: url("/images/book-index.jpg");
+  background-size: cover;
+  background-repeat: repeat-y;
+  background-position-y: -600px;
+}
+
+.cart-items-list {
+  margin: 0 1vw;
+  padding: 1vh 1vw;
+  border: 1px solid black;
+  border-radius: 5px;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: space-evenly;
+  overflow: scroll;
+}
+
+.cart-item {
+  margin: 1vh 0;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.cart-item-panel {
+  margin-left: 1vw;
+  flex-grow: 1;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: flex-start;
+  justify-content: space-evenly;
+}
+
+.cart-item-data {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: flex-start;
+  justify-content: space-evenly;
+}
+
+.cart-item-title {
+  font-size: 24px;
+}
+
+.cart-item-bar {
+  width: 20vw;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cart-item-price {
+  font-size: 24px;
+}
+
+.cart-item-quantity-counter-arrow,
+.cart-item-quantity-counter-text {
+  font-size: 24px;
+  margin: 0 1vw;
+}
+
+.cart-item img {
+  height: 20vh;
+}
+
+.cart-summary {
+  position: sticky;
+  bottom: 0;
+  border: 1px solid black;
+  margin: 1vh 1vw;
+  padding: 1vh 1vw;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: flex-start;
+  justify-content: space-evenly;
+  background-color: white;
+}
+
+.cart-summary span {
+  font-size: 20px;
+}
+
+.cart-summary a {
+  border: 1px solid green;
+  color: green;
+  background-color: white;
+  text-decoration-line: none;
+  padding: 1vh 1vw;
+  margin-top: 2vh;
+  transition: color 0.2s, background-color 0.2s;
+}
+
+.cart-summary a:hover {
+  color: white;
+  background-color: green;
+}
+
+.cart-item-remove {
+  color: red;
+  font-size: 24px;
+}
+
+a {
+  text-decoration-line: none;
+}

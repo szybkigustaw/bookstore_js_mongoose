@@ -1,0 +1,28 @@
+.summary-content {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: space-around;
+  z-index: 2;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+h2 {
+  font-size: 36px;
+  text-align: center;
+  margin: 2vh 0;
+}
+
+p {
+  text-align: center;
+  margin: 1vh 0;
+}
+
+a.panel {
+  text-align: center;
+  text-decoration-line: none;
+  margin: auto;
+}

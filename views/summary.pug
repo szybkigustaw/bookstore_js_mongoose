@@ -1,0 +1,20 @@
+doctype
+html(lang='pl_PL')
+    head
+        meta(charset='utf-8')
+        title Księgarnia
+        meta(name="viewport", content="width=device-width,initial-scale=1.0")
+        meta(http-equiv="X-UA-Compatible", content="ie=edge")
+        style
+            include ../styles/style.css
+            include ../styles/summary.css
+
+    body
+        include ./components/navbar
+
+        main
+        .summary-content 
+            h2 Dziękujemy 
+            p Twoje zamówienie zostało zarejestrowane i w niedługim czasie rozpocznie się jego kompletowanie.
+            p By ponownie zobaczyć szczegóły zamówienia, przejdź do
+            a(href="/account" class="panel") panelu konta

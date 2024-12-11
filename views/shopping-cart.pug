@@ -1,0 +1,46 @@
+doctype
+html(lang='pl_PL')
+    head
+        meta(charset='utf-8')
+        title Księgarnia
+        meta(name="viewport", content="width=device-width,initial-scale=1.0")
+        meta(http-equiv="X-UA-Compatible", content="ie=edge")
+        style
+            include ../styles/style.css
+            include ../styles/cart.css
+
+    body
+        include ./components/navbar
+
+        .cart-main
+            .cart-items-list
+
+                mixin cart_item(cart_item)
+                    .cart-item 
+                        img(src="/images/img.jpg")
+                        .cart-item-panel
+                            .cart-item-data
+                                span(class="cart-item-title") #{cart_item.book.name}
+                                span(class="cart-item-author") #{cart_item.book.author.name}
+                                span(class="cart-item-publisher") Wydawnictwo #{cart_item.book.publisher.name}
+                                span(class="cart-item-condition") Stan: #{cart_item.book.condition.name}
+                                span(class="cart-item-language") Język: #{cart_item.book.language.language}
+                            .cart-item-bar 
+                                    p(class="cart-item-price") #{Number(cart_item.book.price * cart_item.quantity).toFixed(2)}zł
+                                    .cart-item-quantity-counter 
+                                        a(class="cart-item-quantity-counter-arrow" href=`/decrease-cart-amount?item_id=${cart_item.id}&quantity=1` ) <
+                                        span(class="cart-item-quantity-counter-text") #{cart_item.quantity}
+                                        a(class="cart-item-quantity-counter-arrow" href=`/increase-cart-amount?item_id=${cart_item.id}&quantity=1`) >
+                                    a(class="cart-item-remove" href=`/remove-from-cart?item_id=${cart_item.id}`) X
+                for item of cart 
+                    +cart_item(item)
+            .cart-summary
+                - 
+                  const est_price = Number(cart.reduce((acc, val) => acc + (val.book.price * val.quantity), 0)).toFixed(2);
+                  const discount = est_price > 200 ? 15 : (est_price > 100 ? 5 : 0);
+                  const total = Number(est_price - (est_price * (discount / 100))).toFixed(2);
+                span(class="cart-summary-general") Cena: &emsp; #{est_price}zł
+                span(class="cart-summary-discount") Rabat: &emsp; #{discount}%
+                span(class="cart-summary-total") Razem: &emsp; #{total}zł
+                a(class="cart-summary-checkout" href="/checkout") Zamów
+

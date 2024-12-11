@@ -1,0 +1,60 @@
+doctype
+html(lang='pl_PL')
+    head
+        meta(charset='utf-8')
+        title Księgarnia
+        meta(name="viewport", content="width=device-width,initial-scale=1.0")
+        meta(http-equiv="X-UA-Compatible", content="ie=edge")
+        style
+            include ../styles/style.css
+            include ../styles/books.css
+
+    body
+        include ./components/navbar
+
+        div(class="books-main")
+            div(class="book-filters")
+                span Filtry wyszukiwania
+                form(action="/books" method="post" class="search-form")
+                    label(for="author") Autor
+                    input(type="text" name="author" id="author")
+                    label(for="publisher") Wydawnictwo
+                    input(type="text" name="publisher" id="publisher")
+                    label(for="condition") Stan 
+                    input(type="text" name="condition" id="condition")
+                    label(for="category") Kategoria 
+                    input(type="text" name="category" id="category")
+                    label(for="series") Seria 
+                    input(type="text" name="series" id="series")
+                    label(for="price") Cena
+                    input(type="text" name="price" id="price")
+                    label(for="price-type") Metoda porównania ceny 
+                    select(name="price-type" id="price-type")
+                        option(value="le") Niższa od podanej
+                        option(value="ge") Wyższa od podanej
+                        option(value="eq") Równa podanej
+                    button(type="submit") Wyszukaj
+            div(class="book-list")
+                if books.length > 0 
+                    span(class="book-list-header") Znaleziono #{books.length} #{books.length === 1 ? "książkę" : (books.length === 0 || books.length > 4 ? "książek" : "książki")}.
+                    .book-list-content 
+                        mixin book_item(book)
+                            .book-list-item 
+                                img(src="/images/img.jpg")
+                                span(class="book-list-item-title") #{book.name}
+                                span(class="book-list-item-publisher") #{book.author.name}
+                                span(class="book-list-item-publisher") Wydawnictwo #{book.publisher.name}
+                                .book-list-item-footer 
+                                    p(class="book-list-item-footer-data") Stan: #{book.condition.name}
+                                    p(class="book-list-item-footer-data") Język: #{book.language.language}
+                                    p(class="book-list-item-footer-data") Seria: #{book.series.name}
+                                    p(class="book-list-item-footer-data") Kategoria: #{book.category.name}
+                                    p(class="book-list-item-footer-data") Ilość: #{book.quantity}
+                                    p(class="book-list-item-footer-price") Cena: #{book.price}zł
+                                a(class="book-list-item-btn" href=`/add-to-cart?book_id=${book.id}`) Dodaj do koszyka
+                        for book of books 
+                            +book_item(book)
+                else
+                    span(class="book-list-content-none-header") Brak książek spełniających podane kryteria.
+                    span(class="book-list-content-none") Spróbuj zmodyfikować filtry wyszukiwania.
+

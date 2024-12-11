@@ -1,0 +1,41 @@
+doctype
+html(lang='pl_PL')
+    head
+        meta(charset='utf-8')
+        title Księgarnia
+        meta(name="viewport", content="width=device-width,initial-scale=1.0")
+        meta(http-equiv="X-UA-Compatible", content="ie=edge")
+        style
+            include ../styles/style.css
+            include ../styles/login-register.css
+    body
+        include ./components/navbar
+        .register
+            h2 Rejestracja
+            form(action="/user-register" method="post" class="register-form")
+                .register-input
+                    label(for="name" class="register-input-label") Imię i nazwisko
+                    input(type="text" placeholder="np. Jan Kowalski" required class="register-input-field" name="name" id="name")
+                if errors.name
+                    span(class="register-input-error") #{errors.name}
+                .register-input
+                    label(for="login" class="register-input-label") Nazwa użytkownika
+                    input(type="text" min="8" max="32" placeholder="np. jan_kowalski123" required class="register-input-field" name="login" id="login")
+                if errors.login
+                    span(class="register-input-error") #{errors.login}
+                .register-input
+                    label(for="password" class="register-input-label") Hasło
+                    input(type="password" min="8" max="32" required class="register-input-field" name="password" id="password")
+                    if errors.password
+                        span(class="register-input-error") #{errors.password}
+                .register-input
+                    label(for="email" class="register-input-label") Adres E-mail
+                    input(type="email" required class="register-input-field" name="email" id="email")
+                if errors.email
+                    span(class="register-input-error") #{errors.email}
+                .register-button-bar
+                    button(class="register-form-btn" type="submit" name="register-btn") Zarejestruj się
+                    button(class="register-form-btn reset" type="reset" name="reset") Wyczyść pola
+            .login-bar 
+                span Masz już konto? &emsp;
+                a(href="/login") Zaloguj się

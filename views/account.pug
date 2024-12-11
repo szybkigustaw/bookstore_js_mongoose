@@ -1,0 +1,55 @@
+doctype
+html(lang='pl_PL')
+    head
+        meta(charset='utf-8')
+        title Księgarnia
+        meta(name="viewport", content="width=device-width,initial-scale=1.0")
+        meta(http-equiv="X-UA-Compatible", content="ie=edge")
+        style
+            include ../styles/style.css
+            include ../styles/account.css
+
+    body
+        include ./components/navbar
+
+        .account-main 
+            .account
+                h2 Dane konta 
+                .account-info 
+                    span Imię i nazwisko 
+                    span #{user.name}
+                .account-info 
+                    span E-Mail
+                    span #{user.email}
+                .account-info 
+                    span Nazwa użytkownika
+                    span #{user.login}
+
+            
+            .transactions-list
+                h2 Lista transakcji
+                mixin transaction(transaction)
+                    .transaction
+                        span(class="transaction-id") ID Transakcji: #{transaction.transaction_id}
+                        .transaction-items
+                            for item of transaction.transactions_list
+                                .transaction-item 
+                                    img(src="/images/img.jpg")
+                                    .transaction-item-panel
+                                        .transaction-item-data
+                                            span(class="transaction-item-title") #{item.book.name}
+                                            span(class="transaction-item-author") #{item.book.author.name}
+                                        .transaction-item-bar 
+                                            p(class="transaction-item-price") #{Number(item.book.price * item.quantity).toFixed(2)}zł
+                                            .transaction-item-quantity-counter 
+                                                span(class="transaction-item-quantity-counter-text") #{item.quantity}
+                        .transaction-summary
+                            - 
+                                const est_price = Number(transaction.transactions_list.reduce((acc, val) => acc + (val.book.price * val.quantity), 0)).toFixed(2);
+                                const discount = transaction.discount;
+                                const total = Number(est_price - (est_price * (discount / 100))).toFixed(2);
+                            span(class="transaction-summary-general") Cena: &emsp; #{est_price}zł
+                            span(class="transaction-summary-discount") Rabat: &emsp; #{discount}%
+                            span(class="transaction-summary-total") Razem: &emsp; #{total}zł
+                for transaction in transactions 
+                    +transaction(transaction)

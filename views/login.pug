@@ -1,0 +1,31 @@
+doctype
+html(lang='pl_PL')
+    head
+        meta(charset='utf-8')
+        title Księgarnia
+        meta(name="viewport", content="width=device-width,initial-scale=1.0")
+        meta(http-equiv="X-UA-Compatible", content="ie=edge")
+        style
+            include ../styles/style.css
+            include ../styles/login-register.css
+    body
+        include ./components/navbar
+        .login 
+            h2 Logowanie 
+            form(action="/user-login" method="post" class="login-form")
+                .login-input
+                    label(for="login" class="login-input-label") Nazwa użytkownika
+                    input(type="text" min="8" max="32" placeholder="np. jan_kowalski123" required class="login-input-field" name="login" id="login")
+                if errors.login
+                    span(class="login-input-error") #{errors.login}
+                .login-input
+                    label(for="password" class="login-input-label") Hasło
+                    input(type="password" min="8" max="32" required class="login-input-field" name="password" id="password")
+                if errors.password
+                    span(class="login-input-error") #{errors.password}
+                .login-button-bar
+                    button(class="login-form-btn" type="submit" name="login-btn") Zaloguj
+                    button(class="login-form-btn reset" type="reset" name="reset") Wyczyść pola
+            .register-bar 
+                span Nie posiadasz konta? &emsp;
+                a(href="/register") Zarejestruj się

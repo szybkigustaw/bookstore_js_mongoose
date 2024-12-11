@@ -1,0 +1,21 @@
+header
+    a(class="header-logo" href="/")
+        h1 Księgarna Bozo
+nav
+    div(class="nav-buttons")
+        a(class="nav-button" href="/books?condition=new") Książki nowe 
+        a(class="nav-button" href="/books?condition=used") Książki używane 
+        if cart
+            a(class="nav-button" href="/shopping-cart") Koszyk (#{cart.length})
+        else
+            a(class="nav-button" href="/shopping-cart") Koszyk 
+
+    div(class="nav-user")
+        if user
+            span Witaj, #{user.name}!
+            span(class="nav-user-buttons") 
+                a(class="nav-user-button" href="/account") Konto
+                a(class="nav-user-button" href="/logout") Wyloguj
+        else
+            span 
+                a(class="nav-user-button" href="/login") Zaloguj się!

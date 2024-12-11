@@ -1,0 +1,163 @@
+.account-main {
+  background-image: url("/images/book-index.jpg");
+  background-origin: content-box;
+  background-size: cover;
+  background-position-y: -600px;
+  background-repeat: repeat-y;
+  height: 100%;
+  display: grid;
+  grid-template-rows: 40vh minmax(60vh, auto);
+}
+
+.account {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: space-around;
+  border: 1px solid black;
+  border-radius: 5px;
+  margin: 1vh 1vw;
+  padding: 1vh 1vw;
+}
+
+h2 {
+  font-size: 24px;
+  margin-bottom: 2vh;
+  background-color: white;
+  padding: 0.5vh 0.5vw;`
+}
+
+.account-info {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-between;
+  width: 40vw;
+}
+
+.account-info span {
+	background-color: white;
+	padding: 0.5vh 0.5vw;
+}
+
+.transactions-list {
+  margin: 0 1vw;
+  padding: 1vh 1vw;
+  border: 1px solid black;
+  border-radius: 5px;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: space-evenly;
+  overflow: scroll;
+}
+
+.transaction {
+  border: 1px solid black;
+  border-radius: 5px;
+  margin: 1vh 1vw;
+  padding: 3vh 5vw;
+  background-color: white;
+}
+
+.transaction-id {
+  text-align: center;
+  margin: auto;
+  width: 100%;
+}
+
+.transaction-items {
+  width: 100%;
+  padding: 1vh 1vw;
+}
+
+.transaction-item {
+  margin: 1vh 0;
+  width: 80%;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.transaction-item-panel {
+  margin-left: 1vw;
+  flex-grow: 1;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: flex-start;
+  justify-content: space-evenly;
+}
+
+.transaction-item-data {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: flex-start;
+  justify-content: space-evenly;
+}
+
+.transaction-item-title {
+  font-size: 24px;
+}
+
+.transaction-item-bar {
+  width: 20vw;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.transaction-item-price {
+  font-size: 24px;
+}
+
+.transaction-item-quantity-counter-text {
+  font-size: 24px;
+  margin: 0 1vw;
+}
+
+.transaction-item img {
+  height: 20vh;
+}
+
+.transaction-summary {
+  bottom: 0;
+  border: 1px solid black;
+  margin: 1vh 1vw;
+  padding: 1vh 1vw;
+  width: 80%;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: flex-start;
+  justify-content: space-evenly;
+  background-color: white;
+}
+
+.transaction-summary span {
+  font-size: 20px;
+}
+
+.transaction-summary a {
+  border: 1px solid green;
+  color: green;
+  background-color: white;
+  text-decoration-line: none;
+  padding: 1vh 1vw;
+  margin-top: 2vh;
+  transition: color 0.2s, background-color 0.2s;
+}
+
+.transaction-summary a:hover {
+  color: white;
+  background-color: green;
+}
+
+.transaction-item-remove {
+  color: red;
+  font-size: 24px;
+}
+
+a {
+  text-decoration-line: none;
+}

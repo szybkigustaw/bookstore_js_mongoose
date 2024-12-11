@@ -1,0 +1,142 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+*,
+*::after,
+*::before {
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+  font-family: "Poppins", sans-serif;
+}
+
+header {
+  width: 100vw;
+  height: 30vh;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: center;
+  background-image: url("/images/books-bg.jpg");
+  background-size: cover;
+  background-position-y: -250px;
+}
+
+header a {
+  text-decoration-line: none;
+}
+
+header h1 {
+  font-size: 48px;
+  color: yellow;
+}
+
+nav {
+  width: 100vw;
+  height: 10vh;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: lightgray;
+}
+
+nav div.nav-buttons {
+  flex-grow: 1;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.nav-buttons a {
+  text-decoration-line: none;
+  color: green;
+  border: 1px solid green;
+  background-color: white;
+  padding: 1vh 1vw;
+  transition: color 0.2s, background-color 0.2s;
+}
+
+.nav-buttons a:hover {
+  color: white;
+  background-color: green;
+}
+
+nav div.nav-user {
+  width: 10vw;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.nav-user a {
+  text-decoration-line: none;
+}
+
+nav div.nav-user span.nav-user-buttons {
+  width: 80%;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-around;
+}
+
+main {
+  height: 70vh;
+  background-image: url("/images/book-index.jpg");
+  background-origin: content-box;
+  background-size: cover;
+  background-position-y: -600px;
+  background-repeat: no-repeat;
+  filter: blur(10px);
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.content {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  z-index: 2;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 125%);
+}
+
+.content h2 {
+  font-size: 36px;
+  color: red;
+}
+
+.content a {
+  text-decoration-line: none;
+  font-size: 24px;
+  padding: 1vh 1vw;
+  border: 1px solid green;
+  color: white;
+  transition: color 0.2s, background-color 0.2s;
+}
+
+.content a:hover {
+  color: green;
+  background-color: white;
+}
+
+.main-404 {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: space-evenly;
+  height: 60vh;
+}
+
+.main-404 h2 {
+  font-size: 36px;
+}

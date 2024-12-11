@@ -1,0 +1,81 @@
+.login,
+.register {
+  border: 1px solid black;
+  border-radius: 5px;
+  width: 50vw;
+  margin: 1vh auto;
+  padding: 1vh 1vw;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+h2 {
+  font-size: 24px;
+}
+
+.login-form,
+.register-form {
+  margin: 2vh 0;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.login-input,
+.register-input {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.login-input input,
+.register-input input {
+  margin-left: 2vw;
+}
+
+.login-input-field,
+.register-input-field {
+  border-bottom: 1px solid black;
+}
+
+.login-input-error,
+.register-input-error {
+  color: red;
+  font-style: italic;
+}
+
+.login-button-bar,
+.register-button-bar {
+  margin: 2vh 0;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.login-button-bar button,
+.register-button-bar button {
+  margin: 0 2vw;
+  padding: 1vh 1vw;
+  background-color: white;
+  border: 1px solid green;
+  color: green;
+  transition: color 0.2s, background-color 0.2s;
+}
+
+.login-button-bar button:hover,
+.register-button-bar button:hover {
+  background-color: green;
+  color: white;
+}
+
+.register-bar,
+.login-bar {
+  margin: 2vh 0;
+  display: flex;
+}
